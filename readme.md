@@ -3,9 +3,13 @@
 ***->*** GraphQL is a query language for APIs and a runtime for fulfilling those queries with existing data. Basically, it is used to load data from a server to a client -- it’s a way to get data from an API into your application. And as you’ll see, it does this in a much more efficient manner than traditional methods and services.
 
 ***->*** GraphQL was developed by Facebook in 2012 because the team needed “a data-fetching API powerful enough to describe all of Facebook, yet simple enough to be easy to learn and use by our product developers” when building the mobile applications. Since then, the querying language has steadily grown in popularity -- in part to Facebook open-sourcing the language in 2016. GraphQL has proven to be incredibly effective for building modern mobile and web, giving developers a flexible, rich technology for extracting data that is more efficient and less sprawling than REST APIs. The real secret is that GraphQL ensures that the developer and application only loads the relevant and absolute necessary data, even if it's from multiple sources.
+
   ***GraphQL has three main characteristics:***
+
   ***(1)***It lets the client specify exactly what data it needs.
+
   ***(2)***It makes it easier to aggregate data from multiple sources.
+  
   ***(3)***It uses a type system to describe data.
 
 ***->*** With GraphQL, the user is able to make a single call to fetch the required information rather than to construct several REST requests to fetch the same. A GraphQL query is a string that is sent to a server to be interpreted and fulfilled, which then returns JSON back to the client.
@@ -59,8 +63,11 @@ fieldName:(root, args, context, info) => { result }
 These arguments have the following meanings and conventional names:
 
 ***(1)*** obj: The object that contains the result returned from the resolver on the parent field, or, in the case of a top-level Query field, the rootValue passed from the server configuration. This argument enables the nested nature of GraphQL queries.
+
 ***(2)*** args: An object with the arguments passed into the field in the query. For example, if the field was called with author(name: "Ada"), the args object would be: { "name": "Ada" }.
+
 ***(3)*** context: This is an object shared by all resolvers in a particular query, and is used to contain per-request state, including authentication information, dataloader instances, and anything else that should be taken into account when resolving the query.
+
 ***(4)*** info: This argument should only be used in advanced cases, but it contains information about the execution state of the query, including the field name, path to the field from the root, and more. 
 
 ***->*** In order to respond to queries, a schema needs to have resolvers for all fields. Resolvers are per field functions that are given a parent object, arguments, and the execution context, and are responsible for returning a result for that field. Resolvers cannot be included in the GraphQL schema language, so they must be added separately. The collection of resolvers is called the "resolver map". The resolverMap object (IResolvers) should have a map of resolvers for each relevant GraphQL Object Type.
