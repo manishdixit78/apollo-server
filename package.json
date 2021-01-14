@@ -1,0 +1,86 @@
+{
+  "name": "javascript-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@types/mongoose": "^5.7.37",
+    "@types/node": "^14.14.8",
+    "airbnb": "0.0.2",
+    "apollo-server": "^2.19.1",
+    "apollo-server-express": "^2.19.1",
+    "dotenv": "^8.2.0",
+    "env": "0.0.2",
+    "express": "^4.17.1",
+    "graphql": "^15.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "merge-graphql-schemas": "^1.7.8",
+    "path": "^0.12.7"
+  },
+  "husky": {
+    "husky": {
+      "hooks": {
+        "pre-commit": "npm test",
+        "pre-push": "npm test",
+        "...": "..."
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.0",
+    "nodemon": "^2.0.7",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.0.5"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node src",
+    "nodemon": "nodemon ./dist/index.js",
+    "lint": "eslint src"
+  },
+
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "rules": {
+        "brace-style": [
+            "error",
+            "stroustrup"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "no-unused-vars": [
+            "warn"
+        ],
+        "no-var": [
+            "off"
+        ],
+        "one-var": [
+            "off"
+        ]
+    }
+},
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishdixit78/javascript-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manishdixit78/javascript-server/issues"
+  },
+  "homepage": "https://github.com/manishdixit78/javascript-server#readme"
+}
