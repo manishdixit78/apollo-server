@@ -23,7 +23,7 @@ export default class TraineeAPI extends RESTDataSource {
     return this.put('/trainee', payload);
   }
 
-  deleteTrainee(payload) {
-    return this.delete('/trainee', payload);
+  deleteTrainee(id) {
+    return this.delete(`/trainee?id=${id}`);
   }
 }

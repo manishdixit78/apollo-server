@@ -5,10 +5,10 @@ export default {
   createTrainee: async (parent, args, context) => {
     const { payload: { email, name, password } } = args;
     const { dataSources: { traineeAPI } } = context;
-    const addedUser = await traineeAPI.createTrainee({ email, name, password });
-    pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: addedUser });
-    const addedUserData = JSON.stringify(addedUser.data);
-    return addedUserData;
+    const addedTrainee = await traineeAPI.createTrainee({ email, name, password });
+    const addedTraineeData = JSON.stringify(addedTrainee.data);
+    pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: addedTrainee.data });
+    return addedTraineeData;
   },
   updateTrainee: async (parent, args, context) => {
     const {
@@ -17,12 +17,12 @@ export default {
       }
     } = args;
     const { dataSources: { traineeAPI } } = context;
-    const updatedUser = await traineeAPI.updateTrainee({
+    const updatedTrainee = await traineeAPI.updateTrainee({
       id, name, email, role, password
     });
-    pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updatedUser });
-    const UpdateUserData = JSON.stringify(updatedUser.data);
-    return UpdateUserData;
+    const updatedTraineeData = JSON.stringify(updatedTrainee.data);
+    pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updatedTrainee.data });
+    return updatedTraineeData;
   },
   deleteTrainee: async (parent, args, context) => {
     const {
@@ -30,7 +30,8 @@ export default {
     } = args;
     const { dataSources: { traineeAPI } } = context;
     const deletedID = await traineeAPI.deleteTrainee(id);
-    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: deletedID });
-    return deletedID;
+    const deletedTraineeData = JSON.stringify(deletedID);
+    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: deletedTraineeData });
+    return deletedTraineeData;
   }
 };
