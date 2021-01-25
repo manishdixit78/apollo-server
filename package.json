@@ -10,6 +10,7 @@
     "@types/mongoose": "^5.7.37",
     "@types/node": "^14.14.8",
     "airbnb": "0.0.2",
+    "apollo-datasource-rest": "^0.9.7",
     "apollo-server": "^2.19.1",
     "apollo-server-express": "^2.19.1",
     "dotenv": "^8.2.0",
@@ -44,34 +45,6 @@
     "nodemon": "nodemon ./dist/index.js",
     "lint": "eslint src"
   },
-
-  "eslintConfig": {
-    "extends": "airbnb-base",
-    "env": {
-        "es6": true,
-        "browser": true
-    },
-    "rules": {
-        "brace-style": [
-            "error",
-            "stroustrup"
-        ],
-        "comma-dangle": [
-            "error",
-            "never"
-        ],
-        "no-unused-vars": [
-            "warn"
-        ],
-        "no-var": [
-            "off"
-        ],
-        "one-var": [
-            "off"
-        ]
-    }
-},
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/manishdixit78/javascript-server.git"
