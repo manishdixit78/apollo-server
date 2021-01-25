@@ -26,10 +26,9 @@ class Server {
     const { app } = this;
     this.Server = new ApolloServer({
       ...schema,
-      dataSources: () => {
-        const userAPI = new UserAPI();
-        return { userAPI };
-      }
+      dataSource: () => ({
+        userAPI: new UserAPI()
+      })
     });
     this.Server.applyMiddleware({ app });
     this.httpServer = createServer(app);
