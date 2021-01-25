@@ -26,11 +26,10 @@ class Server {
     const { app } = this;
     this.Server = new ApolloServer({
       ...schema,
-      dataSources: () => {
-        const userAPI = new UserAPI();
-        const traineeAPI = new TraineeAPI();
-        return { userAPI, traineeAPI };
-      },
+      dataSources: () => ({
+        userAPI: new UserAPI(),
+        traineeAPI: new TraineeAPI()
+      }),
       context: ({ req }) => {
         if (req) {
           return { token: req.headers.authorization };
