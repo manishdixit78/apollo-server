@@ -3,4 +3,40 @@ type User {
     email: String
     role: String
     password: String
+    originalId: String
+}
+
+type AllTrainees {
+    status: String
+    message: String
+    TotalCount: String
+    TraineeCount: String
+    record: [Detail]
+}
+
+type Detail{
+  _id: String
+  originalId: String
+  name: String
+  email: String
+  role: String
+  password: String
+  createdAt: String
+}
+
+type Delete{
+  status: String
+  message: String
+  code: String
+  data: TraineeData
+
+}
+
+type TraineeData{
+  name: String
+    email: String
+    role: String
+    password: String
+    originalId: String
+    _id: String
 }

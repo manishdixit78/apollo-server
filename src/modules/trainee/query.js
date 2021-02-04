@@ -7,8 +7,9 @@ export default {
     return user.getUser(id);
   },
   getAllTrainees: async (parent, args, context) => {
+    const { payload: { skip, limit, sort } } = args;
     const { dataSources: { traineeAPI } } = context;
-    const response = await traineeAPI.getTrainees();
-    return response.record;
+    const response = await traineeAPI.getTrainees({ skip, limit, sort });
+    return response;
   }
 };
