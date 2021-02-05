@@ -4,6 +4,8 @@ type User {
     role: String
     password: String
     originalId: String
+    createdAt: String
+    _id: String
 }
 
 type AllTrainees {

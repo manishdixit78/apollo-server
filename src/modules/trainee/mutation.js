@@ -6,9 +6,8 @@ export default {
     const { payload: { email, name, password } } = args;
     const { dataSources: { traineeAPI } } = context;
     const addedTrainee = await traineeAPI.createTrainee({ email, name, password });
-    const addedTraineeData = JSON.stringify(addedTrainee.data);
     pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: addedTrainee.data });
-    return addedTraineeData;
+    return addedTrainee.data;
   },
   updateTrainee: async (parent, args, context) => {
     const {
