@@ -21,3 +21,9 @@ input LoginInput {
 input Deletetrainee{
     id: ID!
 }
+
+input  AlltraineesInput {
+    skip: Int
+    limit: Int
+    sort: String
+}
